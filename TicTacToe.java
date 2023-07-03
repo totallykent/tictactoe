@@ -1,8 +1,8 @@
 public class TicTacToe {
     public static void main(String[] args) {
         String[][] gameTable = {{"0","0","0"},{"0","0","0"},{"0","0","0"}};
-        MainMenu mainMenu = new MainMenu();
+        Result result = new Result();
 
-        mainMenu.main(gameTable);
+        result.main("A1");
     }
 }

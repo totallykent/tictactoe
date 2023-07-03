@@ -1,5 +1,5 @@
 public class Result {
-    public static void main(String[] args) {
-        
+    public void main(String coordinates) {
+        System.out.println(coordinates);
     }
 }

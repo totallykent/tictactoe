@@ -1,60 +1,39 @@
 public class Result extends TicTacToe{
-    public void main(int row, int column) {
-        Checker checker = new Checker(row, column);
-        // Cross Checking: up, down, left, right
-        if (row == 0) {
-            checker.down();
-            if (column == 0) {
-                checker.right();
-                checker.bottomRight();
-                checker.bottomRightCorner();
-            } else if (column == 2) {
-                checker.left();
-                checker.bottomLeft();
-                checker.bottomLeftCorner();
-            } else {
-                checker.bottomLeft();
-                checker.bottomRight();
-                checker.right();
-                checker.left();
-            }
 
-        } else if (row == 1) {
-            checker.up();
-            checker.down();
-            if (column == 0) {
-                checker.right();
-                checker.bottomRight();
-            } else if (column == 2) {
-                checker.left();
-                checker.bottomLeft();
-            } else {
-                checker.bottomLeft();
-                checker.bottomRight();
-                checker.right();
-                checker.left();
-            }
-
-        } else if (row == 2) {
-            checker.up();
-            if (column == 0) {
-                checker.right();
-                checker.topRight();
-                checker.topRightCorner();
-            } else if (column == 2) {
-                checker.left();
-                checker.topLeft();
-                checker.topLeftCorner();
-            } else {
-                checker.topLeft();
-                checker.topRight();
-                checker.right();
-                checker.left();
+    public void main(int x, int y) {
+        for (int row = 0; row < 3; row++) {
+            if (gameTable[row][0] == gameTable[x][y] && gameTable[row][1] == gameTable[x][y] && gameTable[row][2] == gameTable[x][y]) {
+                firstCondition=true;
+                secondCondition=true;
             }
         }
 
+        // Check columns
+        for (int col = 0; col < 3; col++) {
+            if (gameTable[0][col] == gameTable[x][y] && gameTable[1][col] == gameTable[x][y] && gameTable[2][col] == gameTable[x][y]) {
+                firstCondition=true;
+                secondCondition=true;
+            }
+        }
+
+        // Check diagonals
+        if (gameTable[0][0] == gameTable[x][y] && gameTable[1][1] == gameTable[x][y] && gameTable[2][2] == gameTable[x][y]) {
+            firstCondition=true;
+            secondCondition=true;
+        } else if (gameTable[0][2] == gameTable[x][y] && gameTable[1][1] == gameTable[x][y] && gameTable[2][0] == gameTable[x][y]) {
+            firstCondition=true;
+            secondCondition=true;
+        }
+
         if (firstCondition&&secondCondition) {
-            System.out.println("Totallykent note: This move won the game, let the player know that they won the game. Any method work as long as it takes the player to the menu screen asking if they want to play again. It is okay to change some of the code in here, like create new method to alert");
+            System.out.println("\n[ " + TicTacToe.gameTable[0][0] + " ]\t" + "[ " + TicTacToe.gameTable[0][1] + " ]\t" + "[ " + TicTacToe.gameTable[0][2] + " ]  ");
+            System.out.println("\n[ " + TicTacToe.gameTable[1][0] + " ]\t" + "[ " + TicTacToe.gameTable[1][1] + " ]\t" + "[ " + TicTacToe.gameTable[1][2] + " ]  ");
+            System.out.println("\n[ " + TicTacToe.gameTable[2][0] + " ]\t" + "[ " + TicTacToe.gameTable[2][1] + " ]\t" + "[ " + TicTacToe.gameTable[2][2] + " ]  ");
+            if (TicTacToe.menuSelection==1) {
+                win();
+            } else if (TicTacToe.menuSelection==2) {
+                winCpu();
+            }
         } else {
             firstCondition = false;
             secondCondition = false;

@@ -64,25 +64,25 @@ public class Checker extends Result{
     }
 
     public void bottomRightCorner() {
-        if (gameTable[y+2][x+2] == gameTable[y][x]) {
+        if (gameTable[2][2] == gameTable[y][x]) {
             connected();
         }
     }
 
     public void bottomLeftCorner() {
-        if (gameTable[y+2][x-2] == gameTable[y][x]) {
+        if (gameTable[2][0] == gameTable[y][x]) {
             connected();
         }
     }
     
     public void topRightCorner() {
-        if (gameTable[y-2][x+2] == gameTable[y][x]) {
+        if (gameTable[0][2] == gameTable[y][x]) {
             connected();
         }
     }
 
     public void topLeftCorner() {
-        if (gameTable[y-2][x-2] == gameTable[y][x]) {
+        if (gameTable[0][0] == gameTable[y][x]) {
             connected();
         }
     }
